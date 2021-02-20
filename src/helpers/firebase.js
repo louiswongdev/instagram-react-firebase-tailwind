@@ -8,3 +8,12 @@ export async function doesUserNameExist(username) {
 
   return userDoc.length > 0;
 }
+
+export async function getUserById(uid) {
+  const snapshot = await firestore.collection('users').doc(`${uid}`).get();
+  const userDoc = snapshot.data();
+
+  console.log('getUserById func being called....');
+
+  return userDoc;
+}

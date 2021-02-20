@@ -37,8 +37,6 @@ export default function SignUp() {
           displayName: username,
         });
 
-        console.log('uid', uid);
-
         await firestore.collection('users').doc(`${uid}`).set({
           uid,
           username: username.toLowerCase(),

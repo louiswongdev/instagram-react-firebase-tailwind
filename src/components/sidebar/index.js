@@ -1,7 +1,8 @@
-import React from 'react';
-import useUser from '../../hooks/useUser';
+import React, { useContext } from 'react';
+import { UserContext } from '../../context/user';
 
 export default function Sidebar() {
-  // const { user: { username, uid, fullName, email } = {} } = useUser();
+  const { user: { username, uid, fullName, email } = {} } = useContext(UserContext);
+
   return <div>Sidebar</div>;
 }

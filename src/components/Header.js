@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../constants/routes';
-import UserContext from '../context/user';
+import { UserContext } from '../context/user';
 import { auth } from '../lib/firebase';
 
 export default function Header() {
   const { user } = useContext(UserContext);
 
-  console.log('user from context:', user);
+  // console.log('user from context:', user);
 
   return (
     <header className="border-b border-gray-200 space-y-2">
@@ -37,7 +37,7 @@ export default function Header() {
                 </Link>
                 <button
                   type="button"
-                  title="SIgn Out"
+                  title="Sign Out"
                   onClick={() => auth.signOut()}
                   onKeyDown={e => {
                     if (e.key === 'Enter') {
@@ -61,11 +61,11 @@ export default function Header() {
                   </svg>
                 </button>
                 <div className="cursor-pointer">
-                  <Link to={`/p/${user.displayName}`}>
+                  <Link to={`/p/${user.username}`}>
                     <img
                       className="rounded-full h-8 w-8 flex"
-                      src={`/images/avatars/${user.displayName}.jpg`}
-                      alt={`${user.displayName} profile`}
+                      src={`/images/avatars/${user.username}.jpg`}
+                      alt={`${user.username} profile`}
                     />
                   </Link>
                 </div>

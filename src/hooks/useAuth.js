@@ -7,7 +7,6 @@ export default function useAuth() {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(authUser => {
-      debugger;
       if (authUser) {
         // localStorage.setItem('authUser', JSON.stringify(authUser));
         setUser(authUser);
